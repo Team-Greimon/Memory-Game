@@ -12,9 +12,12 @@ package memory.game;
 public interface ViewInterface {
     public void setReady();
     public void setGo();
-    public void setNumber(int num);
+    public void setGameOver();
+    public void setInitial();
+	    
+    public void setNumber(String num);
     public void setTimer(double time);
     public void disableButtons();
     public void enableButtons();
-    public void setScore();
+    public void setScore(int score);
 }
