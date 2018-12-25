@@ -59,6 +59,9 @@ public class GameForm extends javax.swing.JFrame implements ViewInterface {
         scoreLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Memory Game");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("iconJpg.jpg")).getImage());
+        setResizable(false);
 
         readyLabel.setFont(new java.awt.Font("굴림", 0, 24)); // NOI18N
         readyLabel.setText("Ready...");
