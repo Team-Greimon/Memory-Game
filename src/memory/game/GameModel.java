@@ -18,9 +18,10 @@ public class GameModel implements ModelInterface {
     private double time;
     private double remainTime;
     private double tmptime;
-    private final double timelimit = 5000;
+    private final double timelimit = 3000;
     private TimerThread timer;
     private String ansStr;
+    private String inputStr;
     private int ckPivot;
     private int level;
     ViewInterface view;
@@ -32,6 +33,7 @@ public class GameModel implements ModelInterface {
         time = 0;
         remainTime = timelimit;
         ansStr = "";
+        inputStr = "";
         ckPivot = 0;
         level = 1;
         this.view = view;
@@ -45,6 +47,7 @@ public class GameModel implements ModelInterface {
         if(gameEnd == true){
             score = 0;
         }
+        inputStr = "";
         gameEnd = false;
         ckStart = false;
         ckPivot = 0;
@@ -69,7 +72,9 @@ public class GameModel implements ModelInterface {
         timer.start();
     }
     public void btPressed(int x){
-        System.out.println("pressed!");
+        //System.out.println("pressed!");
+        inputStr += x;
+        view.setDisplay(inputStr);
         if(ckStart==true){
             ckAns(x);
         }
@@ -102,7 +107,7 @@ public class GameModel implements ModelInterface {
                 nextLevel();
                 ckStart = false;
             }
-            System.out.println(ckPivot);
+            //System.out.println(ckPivot);
         }
         else{
             //fail...
