@@ -6,6 +6,7 @@
 package memory.game;
 
 import java.util.ArrayList;
+import javax.swing.UIManager;
 /**
  *
  * @author 민경효
@@ -63,12 +64,32 @@ public class GameForm extends javax.swing.JFrame implements ViewInterface {
         readyLabel.setText("Ready...");
 
         button7.setText("7");
+        button7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button7ActionPerformed(evt);
+            }
+        });
 
         button4.setText("4");
+        button4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button4ActionPerformed(evt);
+            }
+        });
 
         button8.setText("8");
+        button8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button8ActionPerformed(evt);
+            }
+        });
 
         button5.setText("5");
+        button5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button5ActionPerformed(evt);
+            }
+        });
 
         button1.setText("1");
         button1.addActionListener(new java.awt.event.ActionListener() {
@@ -78,12 +99,32 @@ public class GameForm extends javax.swing.JFrame implements ViewInterface {
         });
 
         button2.setText("2");
+        button2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button2ActionPerformed(evt);
+            }
+        });
 
         button3.setText("3");
+        button3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button3ActionPerformed(evt);
+            }
+        });
 
         button6.setText("6");
+        button6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button6ActionPerformed(evt);
+            }
+        });
 
         button9.setText("9");
+        button9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button9ActionPerformed(evt);
+            }
+        });
 
         startButton.setText("START");
         startButton.addActionListener(new java.awt.event.ActionListener() {
@@ -198,38 +239,6 @@ public class GameForm extends javax.swing.JFrame implements ViewInterface {
     private void inputTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputTextFieldActionPerformed
-
-    private void button9ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        model.btPressed(9);
-    }      
-    
-    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        model.btPressed(2);
-    }      
-    
-    private void button3ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        model.btPressed(3);
-    }      
-    
-    private void button4ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        model.btPressed(4);
-    }      
-    
-    private void button5ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        model.btPressed(5);
-    }      
-    
-    private void button6ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        model.btPressed(6);
-    }      
-    
-    private void button7ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        model.btPressed(7);
-    }      
-    
-    private void button8ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        model.btPressed(8);
-    }
     
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         model.btPressed(1);
@@ -239,32 +248,49 @@ public class GameForm extends javax.swing.JFrame implements ViewInterface {
         model.start();
     }//GEN-LAST:event_startButtonActionPerformed
 
+    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+        model.btPressed(2);
+    }//GEN-LAST:event_button2ActionPerformed
+
+    private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
+        model.btPressed(3);
+    }//GEN-LAST:event_button3ActionPerformed
+
+    private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
+        model.btPressed(4);
+    }//GEN-LAST:event_button4ActionPerformed
+
+    private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
+        model.btPressed(5);
+    }//GEN-LAST:event_button5ActionPerformed
+
+    private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
+        model.btPressed(6);
+    }//GEN-LAST:event_button6ActionPerformed
+
+    private void button7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button7ActionPerformed
+        model.btPressed(7);
+    }//GEN-LAST:event_button7ActionPerformed
+
+    private void button8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button8ActionPerformed
+        model.btPressed(8);
+    }//GEN-LAST:event_button8ActionPerformed
+
+    private void button9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button9ActionPerformed
+        model.btPressed(9);
+    }//GEN-LAST:event_button9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
 	/* Set the Nimbus look and feel */
-	//<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-	/* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-	 */
 	try {
-	    for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-		if ("Nimbus".equals(info.getName())) {
-		    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-		    break;
-		}
-	    }
-	} catch (ClassNotFoundException ex) {
-	    java.util.logging.Logger.getLogger(GameForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-	} catch (InstantiationException ex) {
-	    java.util.logging.Logger.getLogger(GameForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-	} catch (IllegalAccessException ex) {
-	    java.util.logging.Logger.getLogger(GameForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-	} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-	    java.util.logging.Logger.getLogger(GameForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-	}
-	//</editor-fold>
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        }
+        catch (Exception e) {
+
+        }
 
 	/* Create and display the form */
 	java.awt.EventQueue.invokeLater(new Runnable() {
