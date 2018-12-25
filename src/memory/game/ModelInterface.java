@@ -7,7 +7,7 @@ package memory.game;
 
 /**
  *
- * @author JUNG
+ * @author GreimuL
  */
 public interface ModelInterface {
     public void start();
