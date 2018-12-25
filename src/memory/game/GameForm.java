@@ -29,7 +29,7 @@ public class GameForm extends javax.swing.JFrame implements ViewInterface {
 	buttons.add(button7);
 	buttons.add(button8);
 	buttons.add(button9);
-	model = new GameModel();
+	model = new GameModel(this);
     }
 
     /**
