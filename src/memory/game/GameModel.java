@@ -44,6 +44,7 @@ public class GameModel implements ModelInterface {
         view.setNumber("");
     }
     public void start(){
+        view.disableStart();
         timelimit = 3000;
         if(gameEnd == true){
             score = 0;
@@ -55,6 +56,7 @@ public class GameModel implements ModelInterface {
         remainTime = timelimit;
         view.setScore(score);
         genStr();
+        view.setDisplay(inputStr);
         view.setNumber(ansStr);
         view.disableButtons();
         view.setTimer(remainTime);
@@ -91,6 +93,7 @@ public class GameModel implements ModelInterface {
         view.disableButtons();
         view.setTimer(0.0f);
         view.setGameOver();
+        view.enableStart();
     }
     private void genStr(){
         ansStr = "";
