@@ -141,7 +141,6 @@ public class GameForm extends javax.swing.JFrame implements ViewInterface {
 
         inputTextField.setEditable(false);
         inputTextField.setFont(new java.awt.Font("굴림", 0, 18)); // NOI18N
-        inputTextField.setText("54839");
         inputTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputTextFieldActionPerformed(evt);
@@ -363,5 +362,10 @@ public class GameForm extends javax.swing.JFrame implements ViewInterface {
     @Override
     public void setInitial() {
 	readyLabel.setText("Press Start");
+    }
+
+    @Override
+    public void setDisplay(String num) {
+	inputTextField.setText(num);
     }
 }

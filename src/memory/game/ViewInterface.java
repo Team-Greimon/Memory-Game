@@ -16,6 +16,7 @@ public interface ViewInterface {
     public void setInitial();
 	    
     public void setNumber(String num);
+    public void setDisplay(String num);
     public void setTimer(double time);
     public void disableButtons();
     public void enableButtons();
