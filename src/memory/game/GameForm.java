@@ -17,7 +17,7 @@ public class GameForm extends javax.swing.JFrame implements ViewInterface {
      */
     ModelInterface model;
     
-    ArrayList<javax.swing.JButton> buttons;
+    ArrayList<javax.swing.JButton> buttons = new ArrayList<>();
     public GameForm() {
 	initComponents();
 	buttons.add(button1);
