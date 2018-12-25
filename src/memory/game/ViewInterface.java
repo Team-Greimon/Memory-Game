@@ -21,4 +21,7 @@ public interface ViewInterface {
     public void disableButtons();
     public void enableButtons();
     public void setScore(int score);
+    
+    public void disableStart();
+    public void enableStart();
 }

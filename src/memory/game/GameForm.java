@@ -365,4 +365,14 @@ public class GameForm extends javax.swing.JFrame implements ViewInterface {
     public void setDisplay(String num) {
 	inputTextField.setText(num);
     }
+
+    @Override
+    public void disableStart() {
+	startButton.setEnabled(false);
+    }
+
+    @Override
+    public void enableStart() {
+	startButton.setEnabled(true);
+    }
 }
