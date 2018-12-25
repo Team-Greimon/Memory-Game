@@ -18,7 +18,7 @@ public class GameModel implements ModelInterface {
     private double time;
     private double remainTime;
     private double tmptime;
-    private final double timelimit = 3000;
+    private double timelimit = 3000;
     private TimerThread timer;
     private String ansStr;
     private String inputStr;
@@ -44,6 +44,7 @@ public class GameModel implements ModelInterface {
         view.setNumber("");
     }
     public void start(){
+        timelimit = 3000;
         if(gameEnd == true){
             score = 0;
         }
@@ -62,6 +63,7 @@ public class GameModel implements ModelInterface {
         timer.start();
     }
     private void go(){
+        timelimit = 10000;
         view.setNumber("");
         ckStart = true;
         remainTime = timelimit;
@@ -132,7 +134,9 @@ public class GameModel implements ModelInterface {
                     time = System.currentTimeMillis() - tmptime;
                     remainTime = timelimit - time;
                     //set view
-                    view.setTimer(remainTime/1000);
+                    if(remainTime>=0){
+                        view.setTimer(remainTime/1000);
+                    }
                     if(remainTime <=0){
                         break;
                     }
