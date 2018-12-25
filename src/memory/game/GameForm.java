@@ -336,7 +336,7 @@ public class GameForm extends javax.swing.JFrame implements ViewInterface {
 
     @Override
     public void setTimer(double time) {
-	timeLabel.setText("Time: " + String.format("%.0f", time + 1));
+	timeLabel.setText("Time: " + String.format("%d", (int)Math.ceil(time)));
     }
 
     @Override
@@ -351,7 +351,7 @@ public class GameForm extends javax.swing.JFrame implements ViewInterface {
 
     @Override
     public void setScore(int score) {
-	scoreLabel.setText("Score: " + String.valueOf(score));
+	scoreLabel.setText("Score: " + String.valueOf(score * 100));
     }
 
     @Override
