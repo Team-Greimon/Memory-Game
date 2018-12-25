@@ -18,21 +18,25 @@ public class GameModel implements ModelInterface {
     private String ansStr;
     private int ckPivot;
     private int level;
+    ViewInterface view;
     
-    public GameModel(){
+    public GameModel(ViewInterface view){
         score = 0;
         ckStart = false;
         time = 0;
         ansStr = "";
         ckPivot = 0;
         level = 1;
-        
+        this.view = view;
+        view.setInitial();
         //set score,string,time to view
     }
     public void start(){
-        score = 0;
         ckStart = true;
+        view.setScore(score);
         genStr();
+        view.disableButtons();
+        view.setReady();
     }
     public void btPressed(int x){
         if(ckStart==true){
@@ -45,6 +49,7 @@ public class GameModel implements ModelInterface {
         level = 1;
         ckPivot = 0;
         time = 0;
+        view.setGameOver();
     }
     private void genStr(){
         ansStr = "";
@@ -70,6 +75,8 @@ public class GameModel implements ModelInterface {
     }
     private void nextLevel(){
         level++;
+        score++;
+        view.setScore(score);
         genStr();
         ckStart = true;
     }
