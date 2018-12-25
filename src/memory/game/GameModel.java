@@ -9,46 +9,80 @@ import java.util.Random;
 import memory.game.ModelInterface;
 /**
  *
- * @author JUNG
+ * @author GreimuL
  */
 public class GameModel implements ModelInterface {
     private int score;
     private boolean ckStart;
+    private boolean gameEnd;
     private double time;
+    private double remainTime;
+    private double tmptime;
+    private final double timelimit = 5000;
+    private TimerThread timer;
     private String ansStr;
     private int ckPivot;
     private int level;
     ViewInterface view;
     
     public GameModel(ViewInterface view){
+        gameEnd = false;
         score = 0;
         ckStart = false;
         time = 0;
+        remainTime = timelimit;
         ansStr = "";
         ckPivot = 0;
         level = 1;
         this.view = view;
         view.setInitial();
-        //set score,string,time to view
+        view.setScore(score);
+        view.disableButtons();
+        view.setTimer(0.0);
+        view.setNumber("");
     }
     public void start(){
-        ckStart = true;
+        if(gameEnd == true){
+            score = 0;
+        }
+        gameEnd = false;
+        ckStart = false;
+        ckPivot = 0;
+        remainTime = timelimit;
         view.setScore(score);
         genStr();
+        view.setNumber(ansStr);
         view.disableButtons();
+        view.setTimer(remainTime);
         view.setReady();
+        timer = new TimerThread();
+        timer.start();
+    }
+    private void go(){
+        view.setNumber("");
+        ckStart = true;
+        remainTime = timelimit;
+        view.enableButtons();
+        view.setTimer(remainTime);
+        view.setGo();
+        timer = new TimerThread();
+        timer.start();
     }
     public void btPressed(int x){
+        System.out.println("pressed!");
         if(ckStart==true){
             ckAns(x);
         }
     }
-    
     private void end(){
+        timer.interrupt();
         ckStart = false;
+        gameEnd = true;
         level = 1;
         ckPivot = 0;
         time = 0;
+        view.disableButtons();
+        view.setTimer(0.0f);
         view.setGameOver();
     }
     private void genStr(){
@@ -64,9 +98,11 @@ public class GameModel implements ModelInterface {
             //correct!
             ckPivot++;
             if(ckPivot == ansStr.length()){
+                timer.interrupt();
                 nextLevel();
                 ckStart = false;
             }
+            System.out.println(ckPivot);
         }
         else{
             //fail...
@@ -76,17 +112,31 @@ public class GameModel implements ModelInterface {
     private void nextLevel(){
         level++;
         score++;
+        ckPivot = 0;
         view.setScore(score);
         genStr();
-        ckStart = true;
+        start();
     }
     
     class TimerThread extends Thread{
         public void run(){
             try{
-                while(true){
-                    Thread.sleep(100);
+                tmptime = System.currentTimeMillis();
+                while(!Thread.currentThread().isInterrupted()){
+                    Thread.sleep(10);
+                    time = System.currentTimeMillis() - tmptime;
+                    remainTime = timelimit - time;
                     //set view
+                    view.setTimer(remainTime/1000);
+                    if(remainTime <=0){
+                        break;
+                    }
+                }
+                if(ckStart==false){
+                    go();
+                }
+                else{     
+                    end();
                 }
             }
             catch(Exception e){
